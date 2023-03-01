@@ -41,7 +41,7 @@ body {
 .inputBodyInnerSignUpWindow {
   border: 2px solid greenyellow;
   padding: 5px 20px;
-  border-radius: 10px;
+  border-radius: 40px;
   background: rgba(173, 255, 47, 0.5);
   color: black;
   font-family: 'Roboto', sans-serif;
@@ -52,13 +52,35 @@ body {
   background: rgba(173, 255, 47, 0.9);
   outline: 0;
 }
-#positive {
-  position: absolute;
-  padding-left: 10px;
-  color: rgb(0, 255, 0);
-}
-#negative {
-  position: absolute;
-  padding-left: 10px;
+#Unegative, #Enegative, #Pnegative, #RPnegative {
   color: red;
+  position: absolute;
+  padding-left: 10px;
+}
+#Upositive, #Epositive, #Ppositive, #RPpositive {
+  color: greenyellow;
+  position: absolute;
+  padding-left: 10px;
+}
+.submitDivButton {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+.submitButton {
+  position: absolute;
+  text-align: center;
+  width: 150px;
+  height: 35px;
+  background: greenyellow;
+  color: black;
+  border: 0;
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0,0.5);
+  font-size: 25px;
+  top: -15px;
+  text-decoration: none;
+}
+.submitButton:hover {
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.7);
 }
