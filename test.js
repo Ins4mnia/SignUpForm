@@ -1,10 +1,11 @@
+//   Finding all page elements   // 
 const SignUpWindow = document.querySelector('div.bodyInnerSignUpWindow')
 const signUpForm = document.forms.signUp
 const UsernameForm = signUpForm.elements.Username
 const EmailForm = signUpForm.elements.Email
 const PasswordForm = signUpForm.elements.Password
 const RepeatPasswordForm = signUpForm.elements.RepeatPassword
-
+//   We declare an array and a function to check. If all 4 lines are correct, then a "submit" button is created   // 
 const CheckArray = [0,0,0,0]
 function FinalCheck(){
   if (CheckArray.reduce((sum, current) => sum + current, 0) == 4){
@@ -14,7 +15,7 @@ function FinalCheck(){
     if (document.querySelector('div.submitDivButton')){document.querySelector('div.submitDivButton').remove()}
   }
 }
-
+//   UsernameForm   // 
 function Upositive(){
   if (document.getElementById('Unegative')) {document.getElementById('Unegative').remove()}
   if (document.getElementById('Uneutral')) {document.getElementById('Uneutral').remove()}
@@ -39,14 +40,19 @@ function Usernamecheck(){
   }else if (UsernameForm.value.length > 0 && UsernameForm.value.length <= 3){
     Unegative(UsernameForm)
     CheckArray[0] = 0
+  }else if (UsernameForm.value.length > 14){
+      Unegative(UsernameForm)
+      CheckArray[0] = 0
   }else if (UsernameForm.value.length == 0){
     Uneutral(UsernameForm)
     CheckArray[0] = 0
   }
 }
-UsernameForm.addEventListener('blur',Usernamecheck)
-UsernameForm.addEventListener('blur',FinalCheck)
 
+UsernameForm.addEventListener('keyup',Usernamecheck)
+UsernameForm.addEventListener('keyup',FinalCheck)
+
+//   EmailForm   // 
 function Epositive(){
   if (document.getElementById('Enegative')) {document.getElementById('Enegative').remove()}
   if (document.getElementById('Eneutral')) {document.getElementById('Eneutral').remove()}
@@ -76,9 +82,11 @@ function Emailcheck(){
     CheckArray[1] = 0
   }
 }
-EmailForm.addEventListener('blur',Emailcheck)
-EmailForm.addEventListener('blur',FinalCheck)
 
+EmailForm.addEventListener('keyup',Emailcheck)
+EmailForm.addEventListener('keyup',FinalCheck)
+
+//   PasswordForm   //
 function Ppositive(){
   if (document.getElementById('Pnegative')) {document.getElementById('Pnegative').remove()}
   if (document.getElementById('Pneutral')) {document.getElementById('Pneutral').remove()}
@@ -108,9 +116,11 @@ function Passwordcheck(){
     CheckArray[2] = 0
   }
 }
-PasswordForm.addEventListener('blur',Passwordcheck)
-PasswordForm.addEventListener('blur',FinalCheck)
 
+PasswordForm.addEventListener('keyup',Passwordcheck)
+PasswordForm.addEventListener('keyup',FinalCheck)
+
+//   RepeatPasswordForm   //
 function RPpositive(){
   if (document.getElementById('RPnegative')) {document.getElementById('RPnegative').remove()}
   if (document.getElementById('RPneutral')) {document.getElementById('RPneutral').remove()}
@@ -140,5 +150,8 @@ function RepeatPasswordcheck(){
     CheckArray[3] = 0
   }
 }
-RepeatPasswordForm.addEventListener('blur',RepeatPasswordcheck)
-RepeatPasswordForm.addEventListener('blur',FinalCheck)
+
+RepeatPasswordForm.addEventListener('keyup',RepeatPasswordcheck)
+RepeatPasswordForm.addEventListener('keyup',FinalCheck)
+
+// Check the strings "mail" and "password" you can add regular expressions //
